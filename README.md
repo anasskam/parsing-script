@@ -22,7 +22,7 @@ If `pdftotext` is not installed on your system, you can install it using the fol
 ```bash
 sudo apt-get update
 sudo apt-get install poppler-utils
-
+```
 ## 📁 Setup
 
 1. **Clone the repository:**
@@ -30,14 +30,11 @@ sudo apt-get install poppler-utils
    ```bash
    git clone https://github.com/your-username/parsing-script.git
    cd parsing-script
-
+   ```
+   
 2. **Ensure the following two files are present in the same directory:**
 
    - `temp.out` – This file should contain the text to be parsed.  
-     You can generate it from a PDF using the `pdftotext` command:
-     ```bash
-     pdftotext input.pdf temp.out
-     ```
 
    - `result.txt` – This file will store the output from the parser.  
      Create it (if it doesn’t already exist) using:
@@ -49,8 +46,10 @@ sudo apt-get install poppler-utils
 
    ```bash
    g++ -O3 -march=native -flto -funroll-loops main.cpp -o parser
-
+   ```
+   
 4. **Run the script**
 
    ```bash
    ./parser.out
+   ```
