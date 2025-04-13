@@ -13,8 +13,9 @@ public:
 private:
     void init() {
         try {
-            std::string cmd = "pdftotext -f 1 -l 1 ../pdfs/" + m_FilePath + " temp.out";
-            
+            // std::string cmd = "pdftotext -layout -f 1 -l 1 -x 0 -W 600 -y 100 -H 120 ../pdfs/" + m_FilePath + " temp.out";
+            std::string cmd = "pdftotext -f 1 -l 1 -x 0 -W 600 -y 90 -H 150 \"../pdfs/" + m_FilePath + "\" - | grep -vP \"[\\x{0600}-\\x{06FF}]\" > temp.out";
+
             int status = system(cmd.c_str());
 
             if(status == 1) throw std::runtime_error("Text extraction failed.");
@@ -23,5 +24,6 @@ private:
             std::cerr << error.what() << '\n';
         }
     }
+
     std::string m_FilePath;
 };
